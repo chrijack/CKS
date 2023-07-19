@@ -1,0 +1,4 @@
+FROM alpine:3.17
+RUN apk add --no-cache curl git \
+  && curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.26.0/bin/linux/amd64/kubectl \
+  && chmod u+x kubectl && mv kubectl /bin/kubectl

@@ -1,0 +1,4 @@
+FROM golang:1.19
+COPY sample.go ./
+RUN CGO_ENABLED=0 go build sample.go
+CMD ["./sample"]

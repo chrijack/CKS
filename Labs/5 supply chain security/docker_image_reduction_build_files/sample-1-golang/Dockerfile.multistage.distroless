@@ -1,0 +1,7 @@
+FROM golang:1.19 AS builder
+COPY sample.go ./
+RUN CGO_ENABLED=0 go build sample.go
+
+FROM gcr.io/distroless/static-debian11
+COPY --from=builder /go/sample ./
+CMD ["./sample"]
